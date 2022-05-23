@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_noteapp/pages/home.dart';
 import 'package:flutter_noteapp/pages/navigate_items.dart';
 
 class AddNote extends StatefulWidget {
@@ -29,7 +28,7 @@ class _AddNoteState extends State<AddNote> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => NavigateItem()));
      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         backgroundColor: Colors.indigo[600],
-        content: Text("Success, Note created.",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "Ubuntu-Medium"),),
+        content: const Text("Success, Note created.",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "Ubuntu-Medium"),),
       ),);
   }
 
@@ -38,7 +37,7 @@ class _AddNoteState extends State<AddNote> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Add new Note"),
+          title: Text("Add new Note",style: TextStyle(fontFamily: "OpenSans Medium"),),
           backgroundColor: Colors.indigo[500],
         ),
         body: SingleChildScrollView(
@@ -63,7 +62,8 @@ class _AddNoteState extends State<AddNote> {
                         style: TextStyle(
                           fontSize: 32.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey,
+                          color: Colors.indigo[500],
+                          fontFamily: "OpenSans Medium"
                         ),
                         onChanged: (_val) {
                           title = _val;
@@ -79,7 +79,8 @@ class _AddNoteState extends State<AddNote> {
                           ),
                           style: TextStyle(
                             fontSize: 20.0,
-                            color: Colors.grey,
+                            color: Colors.indigo[500],
+                            fontFamily: "OpenSans Medium"
                           ),
                           onChanged: (_val) {
                             description = _val;
@@ -95,15 +96,13 @@ class _AddNoteState extends State<AddNote> {
           ),
         ),
         bottomNavigationBar: Container(
-          padding: EdgeInsets.all(
-            12.0,
-          ),
+          padding: EdgeInsets.all(12.0,),
           child: FlatButton(
             color: Colors.indigo[500],
             padding: EdgeInsets.all(16),
             child: Text(
               "Save",
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: TextStyle(color: Colors.white, fontSize: 16,fontFamily: "OpenSans Medium"),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(

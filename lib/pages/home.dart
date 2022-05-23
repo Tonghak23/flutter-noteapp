@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_noteapp/pages/viewnote.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_noteapp/pages/addnote.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -24,16 +23,14 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: _buildAppBar(context),
       body: _buildBody(context),
-      floatingActionButton: _buildFloatButton(context),
+      // floatingActionButton: _buildFloatButton(context),
     );
   }
 
   _buildAppBar(BuildContext context) {
     return AppBar(
-      title: const Text(
-        "Note App",
-      ),
-      backgroundColor: Colors.blueAccent,
+      title: const Text("Note App",style: TextStyle(fontFamily: "OpenSans Medium"),),
+      backgroundColor: Colors.indigo[500],
     );
   }
 
@@ -66,23 +63,26 @@ class _HomeState extends State<Home> {
                     },
                     child: Card(
                       child: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                           Text(
                             "${data['title']}",
                             style: TextStyle(
-                                fontSize: 20.0,
+                                fontSize: 24.0,
                                 fontWeight: FontWeight.bold,
-                                color:  Colors.indigo[500]),
+                                color:  Colors.indigo[500],
+                                fontFamily: "OpenSans Medium"
+                            ),
                           ),
                           Container(
                             child: Text(
                               "${data['description']}",
                               style: TextStyle(
                                 fontSize: 16.0,
-                                color: Colors.grey,
+                                color: Colors.indigo[500],
+                                fontFamily: "OpenSans Medium"
                               ),
                             ),
                           ),
@@ -93,6 +93,7 @@ class _HomeState extends State<Home> {
                               style:  TextStyle(
                                 fontSize: 14.0,
                                 color:  Colors.indigo[500],
+                                fontFamily: "OpenSans Medium"
                               ),
                             ),
                           ),
@@ -109,14 +110,14 @@ class _HomeState extends State<Home> {
         });
   }
 
-  _buildFloatButton(BuildContext context) {
-    return FloatingActionButton(
-      child: Icon(Icons.pending_actions),
-      backgroundColor: Colors.green,
-      onPressed: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => AddNote()));
-      },
-    );
-  }
+  // _buildFloatButton(BuildContext context) {
+  //   return FloatingActionButton(
+  //     child: Icon(Icons.pending_actions),
+  //     backgroundColor: Colors.indigo,
+  //     onPressed: () {
+  //       Navigator.push(
+  //           context, MaterialPageRoute(builder: (context) => AddNote()));
+  //     },
+  //   );
+  // }
 }

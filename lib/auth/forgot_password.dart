@@ -17,7 +17,7 @@ class _ForgotPassState extends State<ForgotPass> {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: _email);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         backgroundColor: Colors.green,
-        content: Text("Password reset email has been send",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "Ubuntu-Medium"),),
+        content: Text("Password reset email has been send.",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "Ubuntu-Medium"),),
       ),);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen(),),);
     }on FirebaseAuthException catch(error){

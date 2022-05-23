@@ -57,7 +57,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         print("Username : ${_firstname} ${_lastname}");
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: Colors.green,
-          content: Text("Success, You are registred in.",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "Ubuntu-Medium"),),
+          content: Text("Success, You are registred in.",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "OpenSans Medium"),),
         ),);
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen(),),);
       }on FirebaseAuthException catch(error) {
@@ -66,7 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: Colors.red[400],
-              content: Text("password is too weak",style: TextStyle(fontSize: 14,fontFamily:  "Ubuntu-Medium",color: Colors.white),
+              content: Text("password is too weak",style: TextStyle(fontSize: 14,fontFamily:  "OpenSans Medium",color: Colors.white),
               ),
             ),
           );
@@ -76,7 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               backgroundColor: Colors.red[400],
-              content: Text("This email already in use.",style: TextStyle(fontSize: 14,fontFamily:  "Ubuntu-Medium",color: Colors.white),
+              content: Text("This email already in use.",style: TextStyle(fontSize: 14,fontFamily:  "OpenSans Medium",color: Colors.white),
               ),
             ),
           );
@@ -88,7 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           backgroundColor: Colors.redAccent[400],
-          content: Text("Password and Confirm password does not match",style: TextStyle(fontSize: 14,fontFamily:  "Ubuntu-Medium",color: Colors.white),
+          content: Text("Password and Confirm password does not match",style: TextStyle(fontSize: 14,fontFamily:  "OpenSans Medium",color: Colors.white),
           ),
         ),
       );
@@ -111,22 +111,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: Form(
         key: _formKey,
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 60.0, horizontal: 20.0),
+          padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 20.0),
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Column(
               children: [
                 Padding(
                   padding: EdgeInsets.all(10),
-                  child: Image.network("https://trafficneo.cc/wp-content/uploads/2020/02/ghff.png", fit: BoxFit.contain, height: 200,),),
+                  child: Container(
+                    height: 250,
+                    child: Image.network("https://png.pngtree.com/png-vector/20190614/ourmid/pngtree-profileabilitiesbusinessemployeejobmanresumeskills-png-image_1353142.jpg", fit: BoxFit.contain, height: 200,)),),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 5),
                   child: TextFormField(
                     autofocus: false,
                     decoration: InputDecoration(
                       labelText: 'First Name',
-                      labelStyle: TextStyle(fontSize: 16.0),
-                      focusedBorder:OutlineInputBorder(borderSide: const BorderSide(color: Colors.blueAccent,), borderRadius: BorderRadius.circular(20.0),),
+                      labelStyle: TextStyle(fontSize: 16.0,fontFamily: "OpenSans Medium"),
+                      focusedBorder:OutlineInputBorder(borderSide: const BorderSide(color: Colors.indigo,), borderRadius: BorderRadius.circular(20.0),),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),),
                       errorStyle: TextStyle(color: Colors.redAccent, fontSize: 15.0),
                     ),
@@ -145,8 +147,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     autofocus: false,
                     decoration: InputDecoration(
                       labelText: 'Last Name',
-                      labelStyle: TextStyle(fontSize: 16.0),
-                      focusedBorder:OutlineInputBorder(borderSide: const BorderSide(color: Colors.blueAccent,), borderRadius: BorderRadius.circular(20.0),),
+                      labelStyle: TextStyle(fontSize: 16.0,fontFamily: "OpenSans Medium"),
+                      focusedBorder:OutlineInputBorder(borderSide: const BorderSide(color: Colors.indigo,), borderRadius: BorderRadius.circular(20.0),),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),),
                       errorStyle: TextStyle(color: Colors.redAccent, fontSize: 15.0),
                     ),
@@ -165,8 +167,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     autofocus: false,
                     decoration: InputDecoration(
                       labelText: 'Email',
-                      labelStyle: TextStyle(fontSize: 16.0, fontFamily: "Ubuntu-Medium"),
-                      focusedBorder:OutlineInputBorder(borderSide: const BorderSide(color: Colors.blueAccent,), borderRadius: BorderRadius.circular(20.0),),
+                      labelStyle: TextStyle(fontSize: 16.0, fontFamily: "OpenSans Medium"),
+                      focusedBorder:OutlineInputBorder(borderSide: const BorderSide(color: Colors.indigo,), borderRadius: BorderRadius.circular(20.0),),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(20),),
                       errorStyle: TextStyle(color: Colors.redAccent, fontSize: 15.0),
                     ),
@@ -188,9 +190,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     obscureText: _isVisible ? false : true,
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      labelStyle: TextStyle(fontSize: 16.0, fontFamily: "Ubuntu-Medium"),
+                      labelStyle: TextStyle(fontSize: 16.0, fontFamily: "OpenSans Medium"),
                       focusedBorder:OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.blueAccent,),
+                        borderSide: const BorderSide(color: Colors.indigo,),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       suffixIcon: IconButton(
@@ -221,7 +223,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: FlatButton(
                           color:  Colors.indigo[500],
                           padding: EdgeInsets.all(16),
-                          child: Text("Register", style: TextStyle(color: Colors.white, fontSize: 16),
+                          child: Text("Register", style: TextStyle(color: Colors.white, fontSize: 16,fontFamily: "OpenSans Medium"),
                           ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
@@ -243,7 +245,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Container(
                         child: TextButton(
                             onPressed: () {setState(() {Navigator.pushReplacement(context, PageRouteBuilder(pageBuilder: (context, a, b) => LoginScreen(),transitionDuration: Duration(seconds: 0)),);});},
-                            child: Text('Already have an account? back to login.', style: TextStyle(fontSize: 15, color:  Colors.indigo[500],))
+                            child: Text('Already have an account? back to login.', style: TextStyle(fontSize: 15, color:  Colors.indigo[500],fontFamily: "OpenSans Medium"))
                         ),
                       ),
                     ],

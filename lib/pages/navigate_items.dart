@@ -33,6 +33,7 @@ class _NavigateItemState extends State<NavigateItem> {
     return Scaffold(
         body: _pages![_selectIndex],
         bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.indigo[600],	
         items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home_outlined), tooltip: 'Home',label: 'Home'),
         BottomNavigationBarItem(icon: Icon(Icons.note_add), tooltip: 'Feeds',label: 'Add Note'),

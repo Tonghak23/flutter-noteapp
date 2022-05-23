@@ -15,7 +15,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
-  String loginImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYcjw3_GwbZTiQ5LcIOlNgz0mQqYxTXsdd1Q&usqp=CAU";
+  String loginImg = "https://png.pngtree.com/png-vector/20190614/ourmid/pngtree-profileabilitiesbusinessemployeejobmanresumeskills-png-image_1353142.jpg";
   final _formkey = GlobalKey<FormState>();
   var _email ="";
   var _password="";
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>NavigateItem()));
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         backgroundColor: Colors.green,
-        content: Text("Success, You are logged in.",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "Ubuntu-Medium"),),
+        content: Text("Success, You are logged in.",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "OpenSans Medium"),),
       ),);
 
     }on FirebaseAuthException catch(error){
@@ -38,14 +38,14 @@ class _LoginScreenState extends State<LoginScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             backgroundColor: Colors.red,
-            content: Text("No registered for this email",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "Ubuntu-Medium"),),
+            content: Text("No registered for this email",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "OpenSans Medium"),),
           ),);
       }else if(error.code == 'wrong-password') {
         // print("Wrong password, Try again!");
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             backgroundColor: Colors.red,
-            content: Text("Wrong password, Try again!",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "Ubuntu-Medium"),),
+            content: Text("Wrong password, Try again!",style: TextStyle(fontSize: 14.0,color: Colors.white,fontFamily: "OpenSans Medium"),),
           ),);
       }
     }
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     autofocus: false,
                     decoration: InputDecoration(
                       labelText: 'Email',
-                      labelStyle: TextStyle(fontSize: 16.0,fontFamily: "Ubuntu-Medium"),
+                      labelStyle: TextStyle(fontSize: 16.0,fontFamily: "OpenSans Medium"),
                       focusedBorder:OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.indigo,),
                         borderRadius: BorderRadius.circular(20.0),
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () => updateStatus(),
                         icon: Icon(_isVisible ? Icons.visibility : Icons.visibility_off),
                       ),
-                      labelStyle: TextStyle(fontSize: 16.0),
+                      labelStyle: TextStyle(fontSize: 16.0,fontFamily: "OpenSans Medium"),
                       focusedBorder:OutlineInputBorder(
                         borderSide: const BorderSide(color: Colors.indigo,),
                         borderRadius: BorderRadius.circular(20.0),
@@ -132,13 +132,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   margin: EdgeInsets.symmetric(vertical: 16),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width,
                         child: FlatButton(
                           color:  Colors.indigo[500],
                           padding: EdgeInsets.all(16),
-                          child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 16),),
+                          child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 16,fontFamily: "OpenSans Medium"),),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(16),),),
                           onPressed: () {
                             setState(() {
@@ -154,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPass(),),);
                         });
                       },
-                          child: Text('Forgot password?',style: TextStyle(fontSize: 15,color: Colors.red,))),
+                          child: Text('Forgot password?',style: TextStyle(fontSize: 15,color: Colors.red,fontFamily: "OpenSans Medium"))),
                     ],
                   ),
                 ),
@@ -162,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don't have an account?",style: TextStyle(fontFamily: "Ubuntu-Medium"),),
+                      Text("Don't have an account?",style: TextStyle(color: Colors.indigo[600],fontFamily: "OpenSans Medium"),),
                       TextButton(onPressed: (){
                         setState(() {
                           Navigator.pushAndRemoveUntil(context,
@@ -171,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ), (route) => false);
                         });
                       },
-                        child: Text("Register",style: TextStyle(color: Colors.blueAccent),),),
+                        child: Text("Register",style: TextStyle(color: Colors.indigo[600]),),),
                     ],
                   ),
                 ),
